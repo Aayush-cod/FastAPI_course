@@ -13,6 +13,10 @@ app = FastAPI()
 def get_db():
     db = SessionLocal()
     try:
+        #return → Give me the result and finish the function.
+        # yield → Give me one result, pause, and wait until I request the next one.
+        # The main reason yield is useful is that it allows us to create generators, which are memory-efficient and can pause and resume execution.
+
         yield db
     finally:
         db.close()
