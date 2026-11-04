@@ -5,7 +5,7 @@ from main import app
 client = TestClient(app)
 
 def test_predict_with_mock():
-    with patch('model.model.predict') as model_predict:
+    with patch('main.model.predict') as model_predict:
         model_predict.return_value = [99]
         response = client.post(
             '/predict',
