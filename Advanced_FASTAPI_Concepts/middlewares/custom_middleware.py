@@ -9,7 +9,7 @@ class TimerMiddleware(BaseHTTPMiddleware):
 
     async def dispatch(self, req : Request, call_next):
         start = time.time()
-        response = await call_next(req)
+        response = await call_next(req) #Pasees the request to the next step i.e endpoint and gets response
         duration = time.time()- start
         print(f'Request: {req.url.path} completed in {duration:.3f} seconds.')
         return response
