@@ -17,9 +17,9 @@ logger = logging.getLogger('profiling')
 
 
 @app.middleware('http')
-async def get_timing(request : Request, callnext):
+async def get_timing(request : Request, call_next):
     start_time = time.time()
-    response = await callnext(request)
+    response = await call_next(request)
     time_taken = time.time() - start_time
     logger.info(f"Request {request.url.path} completed in {time_taken:.3f}s ")
     return response
